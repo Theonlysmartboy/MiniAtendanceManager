@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                    finish();
                }else {
                    Toast.makeText(this,"Login failed",Toast.LENGTH_SHORT).show();
-                   finish();
                }
 
 
