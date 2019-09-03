@@ -29,13 +29,13 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textSize="31sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtDept"
+        app:layout_constraintBottom_toTopOf="@+id/txtRDept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <AutoCompleteTextView
-        android:id="@+id/txtDept"
+        android:id="@+id/txtRDept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -60,7 +60,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txtRPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDept" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRDept" />
 
     <EditText
         android:id="@+id/txtRPass"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnLogin:
-                auth(email,pass);
+                auth(email.getText(),pass.getText());
                 break;
             case R.id.btnRegister:
                 Intent register = new Intent(MainActivity.this,RegisterActivity.class);
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void auth(AutoCompleteTextView email, EditText pass) {
+    private void auth(Editable email, Editable pass) {
 
     }
 }
