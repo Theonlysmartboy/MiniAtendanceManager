@@ -138,6 +138,45 @@ public class Db extends SQLiteOpenHelper {
         return  res;
 
     }
+    public Cursor Login(String email, String pass){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.query("tbl_users",null,"email=? AND password=?",new String[]{email,pass},null,null,null);
+        return res;
+
+    }
+    /*public boolean checkUser(String email, String password) {
+
+        // array of columns to fetch
+        String[] columns = {
+               "name","dept","email"
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection =  " email = ?" + " AND " + COLUMN_USER_PASSWORD + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {email, password};
+
+        // query user table with conditions
+
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        int cursorCount = cursor.getCount();
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
+    }*/
     public Cursor getAllDepts(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("Select * from tbl_dept",null);
