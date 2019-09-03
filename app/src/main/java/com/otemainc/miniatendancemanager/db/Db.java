@@ -24,7 +24,6 @@ public class Db extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ATTENDANCE_TABLE =  "CREATE TABLE tbl_attendance (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "staff varchar(100) NOT NULL," +
-            "dept varchar(60) NOT NULL," +
             "timeIn varchar(100),"+
             "timeOut varchar(100));";
 
@@ -83,12 +82,11 @@ public class Db extends SQLiteOpenHelper {
         }
         return addedDept;
     }
-    public boolean addTimmeIn(String staff, String dept, String timeIn){
+    public boolean addTimmeIn(String staff, String timeIn){
         boolean addedTimeIn;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
         contentValue.put("staff",staff);
-        contentValue.put("dept",dept);
         contentValue.put("timeIn",timeIn);
         long result = db.insert("tbl_attendance",null,contentValue);
         if(result==-1){
@@ -119,13 +117,12 @@ public class Db extends SQLiteOpenHelper {
         db.update("tbl_dept",contentValue,"id=?",new String[]{id});
         return true;
     }
-    public boolean AddTimeOut(String id, String staff, String dept, String timeIn, String timeOut){
+    public boolean AddTimeOut(String id, String staff, String timeIn, String timeOut){
         boolean addedTimeIn;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
         contentValue.put("id",id);
         contentValue.put("staff",staff);
-        contentValue.put("dept",dept);
         contentValue.put("timeIn",timeIn);
         contentValue.put("timeOut", timeOut);
         db.update("tbl_attendance", contentValue,"id=?",new String[]{id});
