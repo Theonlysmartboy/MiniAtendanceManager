@@ -12,17 +12,17 @@ public class Db extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "att.db";
     private static final String SQL_CREATE_USERS_TABLE =  "CREATE TABLE tbl_users (" +
-            "id int(11) NOT NULL," +
+            "id int(11) PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "name varchar(100) NOT NULL," +
             "dept varchar(100) NOT NULL," +
             "email varchar(60) NOT NULL,"+
             "password varchar(255) NOT NULL);";
     private static final String SQL_CREATE_DEPT_TABLE =  "CREATE TABLE tbl_dept (" +
-            "id int(11) NOT NULL," +
+            "id int(11) PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "name varchar(100) NOT NULL," +
             "descr varchar(255) NOT NULL);";
     private static final String SQL_CREATE_ATTENDANCE_TABLE =  "CREATE TABLE tbl_attendance (" +
-            "id int(11) NOT NULL," +
+            "id int(11) PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "staff varchar(100) NOT NULL," +
             "dept varchar(60) NOT NULL," +
             "timeIn varchar(100),"+
@@ -53,11 +53,10 @@ public class Db extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
     //Create
-    public boolean addUser( int id, String name,String dept, String email,String pass){
+    public boolean addUser(String name,String dept, String email,String pass){
         boolean added;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
-        contentValue.put("id",id);
         contentValue.put("name",name);
         contentValue.put("dept",dept);
         contentValue.put("email",email);
@@ -70,11 +69,10 @@ public class Db extends SQLiteOpenHelper {
         }
         return added;
     }
-    public boolean addDept(int id, String name, String descr){
+    public boolean addDept(String name, String descr){
         boolean addedDept;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
-        contentValue.put("id",id);
         contentValue.put("name",name);
         contentValue.put("descr",descr);
         long result = db.insert("tbl_dept",null,contentValue);
@@ -85,11 +83,10 @@ public class Db extends SQLiteOpenHelper {
         }
         return addedDept;
     }
-    public boolean addTimmeIn(int id, String staff, String dept, String timeIn){
+    public boolean addTimmeIn(String staff, String dept, String timeIn){
         boolean addedTimeIn;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
-        contentValue.put("id",id);
         contentValue.put("staff",staff);
         contentValue.put("dept",dept);
         contentValue.put("timeIn",timeIn);

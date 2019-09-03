@@ -40,5 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void auth(AutoCompleteTextView email, EditText pass) {
+
     }
 }
