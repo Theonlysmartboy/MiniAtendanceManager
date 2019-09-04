@@ -17,4 +17,6 @@
     <string name="taks">Tasks</string>
     <string name="check_the_tasks_assigned_to_you">Check the tasks assigned to you</string>
     <string name="staff_no">Staff No</string>
+    <string name="you_have_not_checked_in_yet">You have not checked in yet</string>
+    <string name="working">Working</string>
 </resources>
